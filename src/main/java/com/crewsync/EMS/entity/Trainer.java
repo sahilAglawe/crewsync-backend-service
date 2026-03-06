@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.hibernate.engine.jdbc.batch.spi.Batch;
 
-import ch.qos.logback.core.status.Status;
+
+import com.crewsync.EMS.enums.EmpStatus;
+
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,7 +30,7 @@ public class Trainer {
 	    private BigDecimal salary;
 	    
 	    @Enumerated(EnumType.STRING)
-	    private Status status;
+	    private EmpStatus empstatus;
 	    
 	    @OneToMany(mappedBy = "trainer")
 	    private List<Batch> batches;

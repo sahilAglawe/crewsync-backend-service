@@ -3,7 +3,9 @@ package com.crewsync.EMS.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import ch.qos.logback.core.status.Status;
+import com.crewsync.EMS.enums.EmpStatus;
+
+
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
@@ -13,7 +15,7 @@ import lombok.*;
 public class Counsellor {
 
 
-	 @Id
+	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    
@@ -25,5 +27,5 @@ public class Counsellor {
 	    private BigDecimal salary;
 	    
 	    @Enumerated(EnumType.STRING)
-	    private Status status;
+	    private EmpStatus empstatus;
 }
