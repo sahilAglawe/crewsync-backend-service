@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Admin {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
