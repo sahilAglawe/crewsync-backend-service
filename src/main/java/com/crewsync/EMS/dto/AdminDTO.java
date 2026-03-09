@@ -1,5 +1,12 @@
 package com.crewsync.EMS.dto;
 
+import lombok.*;
+
+@Data
 public class AdminDTO {
 
+	private Long id;
+	private String name;
+	private String email;
+	private String password;
 }
