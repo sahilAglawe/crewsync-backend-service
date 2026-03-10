@@ -8,6 +8,6 @@ public class RootController {
 
 	@GetMapping
     public String helloMsg(){
-        return "Welcome to Crewsync backend!";
+        return "Welcome to Crewsync backend...!";
     }
 }
