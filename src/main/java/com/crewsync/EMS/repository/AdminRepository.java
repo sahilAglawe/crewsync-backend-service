@@ -2,6 +2,8 @@ package com.crewsync.EMS.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AdminRepository extends JpaRepository<T, ID> {
+import com.crewsync.EMS.entity.Admin;
+
+public interface AdminRepository extends JpaRepository<Admin, Long> {
 
 }
