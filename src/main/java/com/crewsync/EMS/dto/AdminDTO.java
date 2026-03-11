@@ -3,6 +3,8 @@ package com.crewsync.EMS.dto;
 import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AdminDTO {
 
 	private Long id;
