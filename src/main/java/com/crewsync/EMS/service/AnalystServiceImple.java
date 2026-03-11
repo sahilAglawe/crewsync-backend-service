@@ -9,7 +9,7 @@ import com.crewsync.EMS.repository.AnalystRepository;
 
 public class AnalystServiceImple implements AnalystService {
 
-	private final AnalystRepository analystRepository;
+	private final AnalystRepository analystRepository = null;
 	
 	@Override
 	public AnalystDTO createAnalyst(AnalystDTO analystDTO) {
