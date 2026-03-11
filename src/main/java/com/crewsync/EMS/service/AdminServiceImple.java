@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AdminServiceImple implements AdminService {
 
-	private final AdminRepository adminRepository = null;
+	private final AdminRepository adminRepository;
 	
 	@Override
 	public AdminDTO createAdmin(AdminDTO adminDTO) {
