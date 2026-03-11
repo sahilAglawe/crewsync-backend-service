@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BatchDTO {
 
 	private Long id;
