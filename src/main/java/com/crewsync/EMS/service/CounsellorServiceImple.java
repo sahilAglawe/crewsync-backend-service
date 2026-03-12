@@ -2,15 +2,21 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.crewsync.EMS.dto.CounsellorDTO;
 import com.crewsync.EMS.entity.Counsellor;
 import com.crewsync.EMS.entity.Trainer;
 import com.crewsync.EMS.repository.CounsellorRepository;
 import com.crewsync.EMS.repository.TrainerRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class CounsellorServiceImple implements CounsellorService {
 	
-	private final CounsellorRepository counsellorRepository = null;
+	private final CounsellorRepository counsellorRepository;
 
 	@Override
 	public CounsellorDTO createCounsellor(CounsellorDTO counsellorDTO) {

@@ -2,14 +2,21 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.crewsync.EMS.dto.AnalystDTO;
 import com.crewsync.EMS.entity.Analyst;
 import com.crewsync.EMS.repository.AdminRepository;
 import com.crewsync.EMS.repository.AnalystRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class AnalystServiceImple implements AnalystService {
 
-	private final AnalystRepository analystRepository = null;
+	
+	private final AnalystRepository analystRepository;
 	
 	@Override
 	public AnalystDTO createAnalyst(AnalystDTO analystDTO) {

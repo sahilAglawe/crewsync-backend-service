@@ -2,6 +2,8 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.crewsync.EMS.dto.AdminDTO;
 import com.crewsync.EMS.dto.TrainerDTO;
 import com.crewsync.EMS.entity.Admin;
@@ -9,9 +11,13 @@ import com.crewsync.EMS.entity.Trainer;
 import com.crewsync.EMS.repository.AdminRepository;
 import com.crewsync.EMS.repository.TrainerRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class TrainerServiceImple implements TrainerService {
 	
-	private final TrainerRepository trainerRepository = null;
+	private final TrainerRepository trainerRepository;
 
 	@Override
 	public TrainerDTO createTrainer(TrainerDTO trainerDTO) {

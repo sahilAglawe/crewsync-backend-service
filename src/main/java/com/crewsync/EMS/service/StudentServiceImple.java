@@ -2,6 +2,8 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.crewsync.EMS.dto.AdminDTO;
 import com.crewsync.EMS.dto.CounsellorDTO;
 import com.crewsync.EMS.dto.StudentDTO;
@@ -12,10 +14,14 @@ import com.crewsync.EMS.repository.BatchRepository;
 import com.crewsync.EMS.repository.CounsellorRepository;
 import com.crewsync.EMS.repository.StudentRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class StudentServiceImple implements StudentService {
 	
-	private final StudentRepository studentRepository = null;
-    private final BatchRepository batchRepository = null;
+	private final StudentRepository studentRepository;
+    private final BatchRepository batchRepository;
 	
 	@Override
 	public StudentDTO createStudent(StudentDTO studentDTO) {
