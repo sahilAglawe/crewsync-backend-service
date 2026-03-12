@@ -8,7 +8,6 @@ import lombok.*;
 public class BatchProgressDTO {
 
 	private Long id;
-	private Long batchId; 
 	private String title;
 	private String description; 
 	private String documentUrl;
