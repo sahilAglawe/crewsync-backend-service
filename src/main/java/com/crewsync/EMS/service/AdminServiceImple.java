@@ -3,9 +3,10 @@ package com.crewsync.EMS.service;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
 
-import com.crewsync.EMS.service.AdminService;
 import com.crewsync.EMS.dto.AdminDTO;
 import com.crewsync.EMS.entity.Admin;
+import com.crewsync.EMS.exception.ResourceAlreadyExistsException;
+import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.AdminRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class AdminServiceImple implements AdminService {
 	
 	@Override
 	public AdminDTO createAdmin(AdminDTO adminDTO) {
+		
+		List<Admin> admins = adminRepository.findAll();
+		if (admins.size() >= 1) {
+			throw new ResourceAlreadyExistsException("Admin already exists");
+		}
 		Admin admin = new Admin();
 		admin.setName(adminDTO.getName());
 		admin.setEmail(adminDTO.getEmail());
@@ -44,15 +50,18 @@ public class AdminServiceImple implements AdminService {
 
 	@Override
 	public AdminDTO getAdminById(Long id) {
-		Admin admin = adminRepository.findById(id).orElseThrow();
+		Admin admin = adminRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin", id));
 
         return new AdminDTO(admin.getId(), admin.getName(), admin.getEmail(), admin.getPassword());
 	}
 
 	@Override
 	public void deleteAdmin(Long id) {
-		  adminRepository.deleteById(id);
-
+		if (!adminRepository.existsById(id)) {
+			throw new ResourceNotFoundException("Admin", id);
+		}
+		adminRepository.deleteById(id);
 	}
 
 }

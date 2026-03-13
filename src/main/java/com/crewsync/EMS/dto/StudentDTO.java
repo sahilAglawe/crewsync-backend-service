@@ -11,6 +11,7 @@ public class StudentDTO {
 	private String name;
 	private String email;
 	private String password;
-	
-	private long batchId;
+	private String phone;
+	private Long counsellorId;
+	private Long batchId;
 }

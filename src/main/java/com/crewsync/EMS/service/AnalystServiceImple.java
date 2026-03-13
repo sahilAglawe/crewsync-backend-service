@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.AnalystDTO;
 import com.crewsync.EMS.entity.Analyst;
-import com.crewsync.EMS.repository.AdminRepository;
+import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.AnalystRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -44,16 +44,18 @@ public class AnalystServiceImple implements AnalystService {
 
 	@Override
 	public AnalystDTO getAnalystById(Long id) {
-
-        Analyst analyst = analystRepository.findById(id).orElseThrow();
+        Analyst analyst = analystRepository.findById(id)
+        		.orElseThrow(() -> new ResourceNotFoundException("Analyst", id));
 
         return new AnalystDTO(analyst.getId(), analyst.getName(), analyst.getEmail(), analyst.getPassword());
 	}
 
 	@Override
 	public void deleteAnalyst(Long id) {
-		 analystRepository.deleteById(id);
-
+		if (!analystRepository.existsById(id)) {
+			throw new ResourceNotFoundException("Analyst", id);
+		}
+		analystRepository.deleteById(id);
 	}
 
 }

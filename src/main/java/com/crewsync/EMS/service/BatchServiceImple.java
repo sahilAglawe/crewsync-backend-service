@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchDTO;
 import com.crewsync.EMS.entity.Batch;
+import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.BatchRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -65,7 +66,8 @@ public class BatchServiceImple implements BatchService {
 
 	@Override
 	public BatchDTO getBatchById(Long id) {
-		Batch b = batchRepository.findById(id).orElseThrow();
+		Batch b = batchRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Batch", id));
 
         return new BatchDTO(
                 b.getId(),
@@ -81,7 +83,9 @@ public class BatchServiceImple implements BatchService {
 
 	@Override
 	public void deleteBatch(Long id) {
-		
+		if (!batchRepository.existsById(id)) {
+			throw new ResourceNotFoundException("Batch", id);
+		}
 		batchRepository.deleteById(id);
 	}
 

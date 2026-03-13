@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchProgressDTO;
 import com.crewsync.EMS.entity.BatchProgress;
+import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.BatchProgressRepository;
-import com.crewsync.EMS.repository.BatchRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -57,7 +57,8 @@ public class BatchProgressServiceImple implements BatchProgressService {
 	@Override
 	public BatchProgressDTO getProgressById(Long id) {
 		
-		BatchProgress p = repository.findById(id).orElseThrow();
+		BatchProgress p = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
 
         return new BatchProgressDTO(
                 p.getId(),
@@ -69,9 +70,10 @@ public class BatchProgressServiceImple implements BatchProgressService {
 
 	@Override
 	public void deleteProgress(Long id) {
-		
+		if (!repository.existsById(id)) {
+			throw new ResourceNotFoundException("BatchProgress", id);
+		}
 		repository.deleteById(id);
-
 	}
 
 }

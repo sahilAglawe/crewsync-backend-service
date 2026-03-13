@@ -9,6 +9,7 @@ import com.crewsync.EMS.dto.AdminDTO;
 import com.crewsync.EMS.dto.TrainerDTO;
 import com.crewsync.EMS.entity.Admin;
 import com.crewsync.EMS.entity.Trainer;
+import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.AdminRepository;
 import com.crewsync.EMS.repository.TrainerRepository;
 
@@ -46,14 +47,17 @@ public class TrainerServiceImple implements TrainerService {
 
 	@Override
 	public TrainerDTO getTrainerById(Long id) {
-		Trainer trainer = trainerRepository.findById(id).orElseThrow();
+		Trainer trainer = trainerRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Trainer", id));
 
         return new TrainerDTO(trainer.getId(), trainer.getName(), trainer.getEmail(), trainer.getPassword());
 	}
 
 	@Override
 	public void deleteTrainer(Long id) {
-		
+		if (!trainerRepository.existsById(id)) {
+			throw new ResourceNotFoundException("Trainer", id);
+		}
 		trainerRepository.deleteById(id);
 	}
 
