@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crewsync.EMS.dto.AnalystDTO;
+
 import com.crewsync.EMS.dto.CounsellorDTO;
-import com.crewsync.EMS.service.AnalystService;
+
 import com.crewsync.EMS.service.CounsellorService;
 
 import lombok.RequiredArgsConstructor;
