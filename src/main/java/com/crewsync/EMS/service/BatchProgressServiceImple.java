@@ -3,6 +3,7 @@ package com.crewsync.EMS.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchProgressDTO;
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BatchProgressServiceImple implements BatchProgressService {
 
+	@Autowired
 	private final BatchProgressRepository repository;
 	
 	@Override

@@ -7,12 +7,15 @@ import com.crewsync.EMS.service.AdminService;
 import com.crewsync.EMS.dto.AdminDTO;
 import com.crewsync.EMS.entity.Admin;
 import com.crewsync.EMS.repository.AdminRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImple implements AdminService {
 
+	@Autowired
 	private final AdminRepository adminRepository;
 	
 	@Override
@@ -22,9 +25,11 @@ public class AdminServiceImple implements AdminService {
 		admin.setEmail(adminDTO.getEmail());
 		admin.setPassword(adminDTO.getPassword());
 		
-		admin = adminRepository.save(admin);
+		Admin savedAdmin = adminRepository.save(admin);
 		
-		adminDTO.setId(admin.getId());
+		adminDTO.setId(savedAdmin.getId());
+		adminDTO.setName(savedAdmin.getName());
+		adminDTO.setEmail(savedAdmin.getEmail());
 		return adminDTO;
 	}
 

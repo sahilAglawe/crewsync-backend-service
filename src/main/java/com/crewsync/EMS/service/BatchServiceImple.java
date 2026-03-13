@@ -3,6 +3,7 @@ package com.crewsync.EMS.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchDTO;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BatchServiceImple implements BatchService {
 	
+	@Autowired
 	private final BatchRepository batchRepository;
 
 	@Override

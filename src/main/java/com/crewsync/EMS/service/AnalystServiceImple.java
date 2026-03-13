@@ -2,6 +2,7 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.AnalystDTO;
@@ -15,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AnalystServiceImple implements AnalystService {
 
-	
+	@Autowired
 	private final AnalystRepository analystRepository;
 	
 	@Override
@@ -25,9 +26,11 @@ public class AnalystServiceImple implements AnalystService {
 		analyst.setEmail(analystDTO.getEmail());
 		analyst.setPassword(analystDTO.getPassword());
 		
-		analyst = analystRepository.save(analyst);
+		Analyst savedAnalyst = analystRepository.save(analyst);
 		
-		analystDTO.setId(analyst.getId());
+		analystDTO.setId(savedAnalyst.getId());
+		analystDTO.setName(savedAnalyst.getName());
+		analystDTO.setEmail(savedAnalyst.getEmail());
 		return analystDTO;
 		}
 

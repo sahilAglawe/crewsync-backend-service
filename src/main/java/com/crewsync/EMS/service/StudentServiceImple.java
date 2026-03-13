@@ -2,6 +2,7 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.AdminDTO;
@@ -19,8 +20,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImple implements StudentService {
-	
+	@Autowired
 	private final StudentRepository studentRepository;
+	@Autowired
     private final BatchRepository batchRepository;
 	
 	@Override
@@ -30,15 +32,17 @@ public class StudentServiceImple implements StudentService {
 		student.setName(studentDTO.getName());
 		student.setEmail(studentDTO.getEmail());
 		student.setPassword(studentDTO.getPassword());
+		
+		
 
-		// fetch batch from DB using batchId
-		Batch batch = batchRepository.findById(studentDTO.getBatchId()).orElseThrow();
+		
 
-		student.setBatch(batch);
+		Student savedstudent = studentRepository.save(student);
 
-		student = studentRepository.save(student);
-
-		studentDTO.setId(student.getId());
+		studentDTO.setId(savedstudent.getId());
+		studentDTO.setName(savedstudent.getName());
+		studentDTO.setEmail(savedstudent.getEmail());
+		
 
 		return studentDTO;
 	}

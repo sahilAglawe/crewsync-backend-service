@@ -2,6 +2,7 @@ package com.crewsync.EMS.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.AdminDTO;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TrainerServiceImple implements TrainerService {
 	
+	@Autowired
 	private final TrainerRepository trainerRepository;
 
 	@Override
@@ -26,9 +28,11 @@ public class TrainerServiceImple implements TrainerService {
 		trainer.setEmail(trainerDTO.getEmail());
 		trainer.setPassword(trainerDTO.getPassword());
 		
-		trainer = trainerRepository.save(trainer);
+		Trainer savedTrainer = trainerRepository.save(trainer);
 		
-		trainerDTO.setId(trainer.getId());
+		trainerDTO.setId(savedTrainer.getId());
+		trainerDTO.setName(savedTrainer.getName());
+		trainerDTO.setEmail(savedTrainer.getEmail());
 		return trainerDTO;
 	}
 
