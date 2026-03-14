@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.crewsync.EMS.dto.TrainerDTO;
-import com.crewsync.EMS.service.TrainerService;
+import com.crewsync.EMS.dto.BatchProgressDTO;
+import com.crewsync.EMS.service.BatchProgressService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,25 +20,27 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TrainerController {
 
-private final TrainerService trainerService;
-	
-	@PostMapping
-	public TrainerDTO createCounsellor(@RequestBody TrainerDTO trainerDTO) {
-		return trainerService.createTrainer(trainerDTO);
-	}
-	
-	@GetMapping
-    public List<TrainerDTO> getAllTrainers() {
-        return trainerService.getAllTrainers();
-    }
-	
-	@GetMapping("/{id}")
-	public TrainerDTO getTrainerById(@PathVariable Long id) {
-		return trainerService.getTrainerById(id);
-	}
-	
-	@DeleteMapping("/{id}")
-	public void deleteTrainer(@PathVariable Long id) {
-	  trainerService.deleteTrainer(id);
-	}
+	 private final BatchProgressService progressService;
+	 
+	  @PostMapping("/progress")
+	    public BatchProgressDTO addProgress(@RequestBody BatchProgressDTO dto) {
+	        return progressService.addProgress(dto);
+	    }
+
+	    @GetMapping("/progress")
+	    public List<BatchProgressDTO> getAllProgress() {
+	        return progressService.getAllProgress();
+	    }
+
+	    @GetMapping("/progress/{id}")
+	    public BatchProgressDTO getProgress(@PathVariable Long id) {
+	        return progressService.getProgressById(id);
+	    }
+
+	    @DeleteMapping("/progress/{id}")
+	    public String deleteProgress(@PathVariable Long id) {
+	        progressService.deleteProgress(id);
+	        return "Progress deleted";
+	    }
+
 }
