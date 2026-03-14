@@ -42,10 +42,10 @@ public class Batch {
     private Analyst analyst;
 
     // Students in batch
-    @OneToMany(mappedBy = "batch")
+    @OneToMany(mappedBy = "batch", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> students;
 
     // Batch progress
-    @OneToMany(mappedBy = "batch")
+    @OneToMany(mappedBy = "batch", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BatchProgress> progressList;
 }
