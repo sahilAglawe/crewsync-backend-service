@@ -11,6 +11,8 @@ public interface BatchService {
 	    List<BatchDTO> getAllBatches();
 
 	    BatchDTO getBatchById(Long id);
+	    
+	    void assignTrainer(Long batchId, Long trainerId);
 
 	    void deleteBatch(Long id);
 }
