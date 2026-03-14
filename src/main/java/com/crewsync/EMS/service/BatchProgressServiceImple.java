@@ -1,9 +1,7 @@
 package com.crewsync.EMS.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchProgressDTO;
@@ -17,14 +15,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BatchProgressServiceImple implements BatchProgressService {
 
-	@Autowired
-	private final BatchProgressRepository repository;
-	
-	@Override
-	public BatchProgressDTO addProgress(BatchProgressDTO dto) {
-		
-		BatchProgress progress = new BatchProgress();
+    private final BatchProgressRepository repository;
 
+    @Override
+    public BatchProgressDTO addProgress(BatchProgressDTO dto) {
+
+        BatchProgress progress = new BatchProgress();
         progress.setTitle(dto.getTitle());
         progress.setDescription(dto.getDescription());
         progress.setDocumentUrl(dto.getDocumentUrl());
@@ -37,13 +33,12 @@ public class BatchProgressServiceImple implements BatchProgressService {
                 saved.getDescription(),
                 saved.getDocumentUrl()
         );
-		
-	}
+    }
 
-	@Override
-	public List<BatchProgressDTO> getAllProgress() {
-		
-		return repository.findAll()
+    @Override
+    public List<BatchProgressDTO> getAllProgress() {
+
+        return repository.findAll()
                 .stream()
                 .map(p -> new BatchProgressDTO(
                         p.getId(),
@@ -51,29 +46,30 @@ public class BatchProgressServiceImple implements BatchProgressService {
                         p.getDescription(),
                         p.getDocumentUrl()
                 ))
-                .collect(Collectors.toList());
-	}
+                .toList();
+    }
 
-	@Override
-	public BatchProgressDTO getProgressById(Long id) {
-		
-		BatchProgress p = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
+    @Override
+    public BatchProgressDTO getProgressById(Long id) {
+
+        BatchProgress progress = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
 
         return new BatchProgressDTO(
-                p.getId(),
-                p.getTitle(),
-                p.getDescription(),
-                p.getDocumentUrl()
+                progress.getId(),
+                progress.getTitle(),
+                progress.getDescription(),
+                progress.getDocumentUrl()
         );
-	}
+    }
 
-	@Override
-	public void deleteProgress(Long id) {
-		if (!repository.existsById(id)) {
-			throw new ResourceNotFoundException("BatchProgress", id);
-		}
-		repository.deleteById(id);
-	}
+    @Override
+    public void deleteProgress(Long id) {
 
+        if (!repository.existsById(id)) {
+            throw new ResourceNotFoundException("BatchProgress", id);
+        }
+
+        repository.deleteById(id);
+    }
 }
