@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchDTO;
 import com.crewsync.EMS.entity.Batch;
+import com.crewsync.EMS.entity.Trainer;
 import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.BatchRepository;
+import com.crewsync.EMS.repository.TrainerRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class BatchServiceImple implements BatchService {
 
     private final BatchRepository batchRepository;
+    private final TrainerRepository trainerRepository;
 
     @Override
     public BatchDTO createBatch(BatchDTO batchDTO) {
@@ -77,6 +80,20 @@ public class BatchServiceImple implements BatchService {
                 batch.getMode(),
                 batch.getBatchstatus()
         );
+    }
+    
+    @Override
+    public void assignTrainer(Long batchId, Long trainerId) {
+
+        Batch batch = batchRepository.findById(batchId)
+                .orElseThrow(() -> new RuntimeException("Batch not found with id " + batchId));
+
+        Trainer trainer = trainerRepository.findById(trainerId)
+                .orElseThrow(() -> new RuntimeException("Trainer not found with id " + trainerId));
+
+        batch.setTrainer(trainer);
+
+        batchRepository.save(batch);
     }
 
     @Override
