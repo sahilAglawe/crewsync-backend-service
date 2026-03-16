@@ -21,25 +21,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BatchController {
 
-	private final BatchService batchService;
-	
-	 @PostMapping
-	    public BatchDTO createBatch(@RequestBody BatchDTO batchDTO) {
-	        return batchService.createBatch(batchDTO);
-	    }
-	    
-	    @GetMapping
-	    public List<BatchDTO> getAllBatches() {
-	        return batchService.getAllBatches();
-	    }
 
-	    @GetMapping("/{id}")
-	    public BatchDTO getBatchById(@PathVariable Long id) {
-	        return batchService.getBatchById(id);
-	    }
-
-	    @DeleteMapping("/{id}")
-	    public void deleteBatch(@PathVariable Long id) {
-	        batchService.deleteBatch(id);
-	    }
 }
