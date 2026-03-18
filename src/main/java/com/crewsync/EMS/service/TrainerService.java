@@ -7,6 +7,7 @@ import com.crewsync.EMS.dto.TrainerDTO;
 public interface TrainerService {
 
 	    TrainerDTO createTrainer(TrainerDTO trainerDTO);
+	
 
 	    List<TrainerDTO> getAllTrainers();
 
