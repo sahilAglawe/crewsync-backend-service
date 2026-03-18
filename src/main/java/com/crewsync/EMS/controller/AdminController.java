@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +47,11 @@ public class AdminController {
 	        return trainerService.getTrainerById(id);
 	    }
 
+	    @PutMapping("/trainers/{id}")
+	    public TrainerDTO updateTrainer(@PathVariable Long id, @RequestBody TrainerDTO trainerDTO) {
+	        return trainerService.updateTrainer(id, trainerDTO);
+	    }
+
 	    @DeleteMapping("/trainers/{id}")
 	    public String deleteTrainer(@PathVariable Long id) {
 	        trainerService.deleteTrainer(id);
@@ -69,6 +75,11 @@ public class AdminController {
 	        return counsellorService.getCounsellorById(id);
 	    }
 
+	    @PutMapping("/counsellors/{id}")
+	    public CounsellorDTO updateCounsellor(@PathVariable Long id, @RequestBody CounsellorDTO dto) {
+	        return counsellorService.updateCounsellor(id, dto);
+	    }
+
 	    @DeleteMapping("/counsellors/{id}")
 	    public String deleteCounsellor(@PathVariable Long id) {
 	        counsellorService.deleteCounsellor(id);
@@ -90,6 +101,11 @@ public class AdminController {
 	    @GetMapping("/analysts/{id}")
 	    public AnalystDTO getAnalyst(@PathVariable Long id) {
 	        return analystService.getAnalystById(id);
+	    }
+
+	    @PutMapping("/analysts/{id}")
+	    public AnalystDTO updateAnalyst(@PathVariable Long id, @RequestBody AnalystDTO dto) {
+	        return analystService.updateAnalyst(id, dto);
 	    }
 
 	    @DeleteMapping("/analysts/{id}")

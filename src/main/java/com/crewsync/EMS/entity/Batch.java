@@ -3,6 +3,7 @@ package com.crewsync.EMS.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.crewsync.EMS.enums.BatchStatus;
 import com.crewsync.EMS.enums.Mode;
 
@@ -42,10 +43,12 @@ public class Batch {
     private Analyst analyst;
 
     // Students in batch
+    @JsonIgnore
     @OneToMany(mappedBy = "batch", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> students;
 
     // Batch progress
+    @JsonIgnore
     @OneToMany(mappedBy = "batch", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BatchProgress> progressList;
 }

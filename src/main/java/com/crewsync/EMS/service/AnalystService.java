@@ -13,4 +13,6 @@ public interface AnalystService {
 	    AnalystDTO getAnalystById(Long id);
 
 	    void deleteAnalyst(Long id);
+
+	    AnalystDTO updateAnalyst(Long id, AnalystDTO analystDTO);
 }

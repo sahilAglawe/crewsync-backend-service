@@ -13,4 +13,6 @@ public interface BatchProgressService {
     BatchProgressDTO getProgressById(Long id);
 
     void deleteProgress(Long id);
+
+    BatchProgressDTO updateProgress(Long id, BatchProgressDTO dto);
 }

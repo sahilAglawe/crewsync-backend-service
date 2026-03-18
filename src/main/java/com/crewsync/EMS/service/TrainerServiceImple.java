@@ -79,4 +79,20 @@ public class TrainerServiceImple implements TrainerService {
 
         trainerRepository.deleteById(id);
     }
+
+    @Override
+    public TrainerDTO updateTrainer(Long id, TrainerDTO trainerDTO) {
+        Trainer trainer = trainerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Trainer", id));
+        trainer.setName(trainerDTO.getName());
+        trainer.setEmail(trainerDTO.getEmail());
+        if (trainerDTO.getPhone() != null) trainer.setPhone(trainerDTO.getPhone());
+        if (trainerDTO.getPassword() != null) trainer.setPassword(trainerDTO.getPassword());
+        if (trainerDTO.getJoiningDate() != null) trainer.setJoiningDate(trainerDTO.getJoiningDate());
+        if (trainerDTO.getSalary() != null) trainer.setSalary(trainerDTO.getSalary());
+        if (trainerDTO.getEmpstatus() != null) trainer.setEmpstatus(trainerDTO.getEmpstatus());
+        Trainer saved = trainerRepository.save(trainer);
+        return new TrainerDTO(saved.getId(), saved.getName(), saved.getEmail(), saved.getPhone(),
+                saved.getPassword(), saved.getJoiningDate(), saved.getSalary(), saved.getEmpstatus());
+    }
 }

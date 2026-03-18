@@ -23,6 +23,11 @@ public class BatchProgress {
 
     private String documentUrl;
 
+    private String documentName;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String documentData;
+
     private LocalDate date;
 
     // Select batch from batch table

@@ -21,39 +21,41 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AnalystController {
 
-	 private final BatchService batchService;
-	 
-	  @PostMapping("/batches")
-	    public BatchDTO createBatch(@RequestBody BatchDTO batchDTO) {
-	        return batchService.createBatch(batchDTO);
-	    }
+	private final BatchService batchService;
 
-	    @GetMapping("/batches")
-	    public List<BatchDTO> getAllBatches() {
-	        return batchService.getAllBatches();
-	    }
+	@PostMapping("/batches")
+	public BatchDTO createBatch(@RequestBody BatchDTO batchDTO) {
+		return batchService.createBatch(batchDTO);
+	}
 
-	    @GetMapping("/batches/{id}")
-	    public BatchDTO getBatch(@PathVariable Long id) {
-	        return batchService.getBatchById(id);
-	    }
+	@GetMapping("/batches")
+	public List<BatchDTO> getAllBatches() {
+		return batchService.getAllBatches();
+	}
 
-	    @PutMapping("/batches/{batchId}/assign-trainer/{trainerId}")
-	    public String assignTrainer(
-	            @PathVariable Long batchId,
-	            @PathVariable Long trainerId) {
+	@GetMapping("/batches/{id}")
+	public BatchDTO getBatch(@PathVariable Long id) {
+		return batchService.getBatchById(id);
+	}
 
-	        batchService.assignTrainer(batchId, trainerId);
-	        return "Trainer assigned successfully";
-	    }
+	@PutMapping("/batches/{batchId}/assign-trainer/{trainerId}")
+	public String assignTrainer(
+			@PathVariable Long batchId,
+			@PathVariable Long trainerId) {
 
-	    
-	    @DeleteMapping("/batches/{id}")
-	    public String deleteBatch(@PathVariable Long id) {
-	        batchService.deleteBatch(id);
-	        return "Batch deleted successfully";
-	    }
-	
+		batchService.assignTrainer(batchId, trainerId);
+		return "Trainer assigned successfully";
+	}
 
+	@PutMapping("/batches/{id}")
+	public BatchDTO updateBatch(@PathVariable Long id, @RequestBody BatchDTO batchDTO) {
+		return batchService.updateBatch(id, batchDTO);
+	}
+
+	@DeleteMapping("/batches/{id}")
+	public String deleteBatch(@PathVariable Long id) {
+		batchService.deleteBatch(id);
+		return "Batch deleted successfully";
+	}
 
 }

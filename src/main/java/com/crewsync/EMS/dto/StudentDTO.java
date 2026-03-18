@@ -10,8 +10,10 @@ public class StudentDTO {
 	private Long id;
 	private String name;
 	private String email;
-	private String password;
 	private String phone;
+	private String password;
+	private String course;
 	private Long counsellorId;
 	private Long batchId;
+	private String batchName;
 }

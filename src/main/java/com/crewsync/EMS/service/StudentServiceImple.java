@@ -23,79 +23,87 @@ public class StudentServiceImple implements StudentService {
     private final BatchRepository batchRepository;
     private final CounsellorRepository counsellorRepository;
 
-    @Override
-    public StudentDTO createStudent(StudentDTO studentDTO) {
-
-        Batch batch = batchRepository.findById(studentDTO.getBatchId())
-                .orElseThrow(() -> new ResourceNotFoundException("Batch", studentDTO.getBatchId()));
-
-        Counsellor counsellor = counsellorRepository.findById(studentDTO.getCounsellorId())
-                .orElseThrow(() -> new ResourceNotFoundException("Counsellor", studentDTO.getCounsellorId()));
-
-        Student student = new Student();
-        student.setName(studentDTO.getName());
-        student.setEmail(studentDTO.getEmail());
-        student.setPassword(studentDTO.getPassword());
-        student.setPhone(studentDTO.getPhone());
-        student.setBatch(batch);
-        student.setCounsellor(counsellor);
-
-        Student savedStudent = studentRepository.save(student);
-
-        studentDTO.setId(savedStudent.getId());
-        studentDTO.setName(savedStudent.getName());
-        studentDTO.setEmail(savedStudent.getEmail());
-        studentDTO.setPhone(savedStudent.getPhone());
-        studentDTO.setBatchId(savedStudent.getBatch().getId());
-        studentDTO.setCounsellorId(savedStudent.getCounsellor().getId());
-        studentDTO.setPassword(null);
-
-        return studentDTO;
-    }
-
-    @Override
-    public List<StudentDTO> getAllStudents() {
-
-        return studentRepository.findAll()
-                .stream()
-                .map(s -> {
-                    StudentDTO dto = new StudentDTO();
-                    dto.setId(s.getId());
-                    dto.setName(s.getName());
-                    dto.setEmail(s.getEmail());
-                    dto.setPhone(s.getPhone());
-                    dto.setBatchId(s.getBatch().getId());
-                    dto.setCounsellorId(s.getCounsellor().getId());
-                    dto.setPassword(null);
-                    return dto;
-                })
-                .toList();
-    }
-
-    @Override
-    public StudentDTO getStudentById(Long id) {
-
-        Student student = studentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", id));
-
+    // Helper: entity -> DTO (null-safe for optional relations)
+    private StudentDTO toDTO(Student s) {
         return new StudentDTO(
-                student.getId(),
-                student.getName(),
-                student.getEmail(),
-                student.getPhone(),
-                null,
-                student.getBatch().getId(),
-                student.getCounsellor().getId()
+                s.getId(),
+                s.getName(),
+                s.getEmail(),
+                s.getPhone(),
+                null,   // never return password
+                s.getCourse(),
+                s.getCounsellor() != null ? s.getCounsellor().getId() : null,
+                s.getBatch() != null ? s.getBatch().getId() : null,
+                s.getBatch() != null ? s.getBatch().getBatchName() : null
         );
     }
 
     @Override
-    public void deleteStudent(Long id) {
+    public StudentDTO createStudent(StudentDTO studentDTO) {
+        Student student = new Student();
+        student.setName(studentDTO.getName());
+        student.setEmail(studentDTO.getEmail());
+        student.setPassword(studentDTO.getPassword() != null ? studentDTO.getPassword() : "default123");
+        student.setPhone(studentDTO.getPhone());
+        student.setCourse(studentDTO.getCourse());
 
+        // Optionally link to batch
+        if (studentDTO.getBatchId() != null) {
+            Batch batch = batchRepository.findById(studentDTO.getBatchId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Batch", studentDTO.getBatchId()));
+            student.setBatch(batch);
+        }
+
+        // Optionally link to counsellor
+        if (studentDTO.getCounsellorId() != null) {
+            Counsellor counsellor = counsellorRepository.findById(studentDTO.getCounsellorId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Counsellor", studentDTO.getCounsellorId()));
+            student.setCounsellor(counsellor);
+        }
+
+        return toDTO(studentRepository.save(student));
+    }
+
+    @Override
+    public List<StudentDTO> getAllStudents() {
+        return studentRepository.findAll().stream().map(this::toDTO).toList();
+    }
+
+    @Override
+    public StudentDTO getStudentById(Long id) {
+        return toDTO(studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", id)));
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
         if (!studentRepository.existsById(id)) {
             throw new ResourceNotFoundException("Student", id);
         }
-
         studentRepository.deleteById(id);
+    }
+
+    @Override
+    public StudentDTO updateStudent(Long id, StudentDTO studentDTO) {
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", id));
+        if (studentDTO.getName() != null) student.setName(studentDTO.getName());
+        if (studentDTO.getEmail() != null) student.setEmail(studentDTO.getEmail());
+        if (studentDTO.getPhone() != null) student.setPhone(studentDTO.getPhone());
+        if (studentDTO.getCourse() != null) student.setCourse(studentDTO.getCourse());
+        if (studentDTO.getPassword() != null && !studentDTO.getPassword().isBlank()) {
+            student.setPassword(studentDTO.getPassword());
+        }
+        if (studentDTO.getBatchId() != null) {
+            Batch batch = batchRepository.findById(studentDTO.getBatchId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Batch", studentDTO.getBatchId()));
+            student.setBatch(batch);
+        }
+        if (studentDTO.getCounsellorId() != null) {
+            Counsellor counsellor = counsellorRepository.findById(studentDTO.getCounsellorId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Counsellor", studentDTO.getCounsellorId()));
+            student.setCounsellor(counsellor);
+        }
+        return toDTO(studentRepository.save(student));
     }
 }

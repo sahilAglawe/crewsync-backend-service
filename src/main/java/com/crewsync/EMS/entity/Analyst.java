@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.crewsync.EMS.enums.EmpStatus;
 
 import jakarta.persistence.*;
@@ -32,6 +32,7 @@ public class Analyst {
 	    @Enumerated(EnumType.STRING)
 	    private EmpStatus empstatus;
 	    
+	    @JsonIgnore
 	    @OneToMany(mappedBy = "analyst")
 	    private List<Batch> batches;
 }

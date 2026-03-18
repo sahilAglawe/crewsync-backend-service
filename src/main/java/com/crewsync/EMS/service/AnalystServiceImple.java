@@ -79,4 +79,20 @@ public class AnalystServiceImple implements AnalystService {
 
         analystRepository.deleteById(id);
     }
+
+    @Override
+    public AnalystDTO updateAnalyst(Long id, AnalystDTO analystDTO) {
+        Analyst analyst = analystRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Analyst", id));
+        analyst.setName(analystDTO.getName());
+        analyst.setEmail(analystDTO.getEmail());
+        if (analystDTO.getPhone() != null) analyst.setPhone(analystDTO.getPhone());
+        if (analystDTO.getPassword() != null) analyst.setPassword(analystDTO.getPassword());
+        if (analystDTO.getJoiningDate() != null) analyst.setJoiningDate(analystDTO.getJoiningDate());
+        if (analystDTO.getSalary() != null) analyst.setSalary(analystDTO.getSalary());
+        if (analystDTO.getEmpstatus() != null) analyst.setEmpstatus(analystDTO.getEmpstatus());
+        Analyst saved = analystRepository.save(analyst);
+        return new AnalystDTO(saved.getId(), saved.getName(), saved.getEmail(), saved.getPhone(),
+                saved.getPassword(), saved.getJoiningDate(), saved.getSalary(), saved.getEmpstatus());
+    }
 }

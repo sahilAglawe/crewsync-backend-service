@@ -14,4 +14,6 @@ public interface CounsellorService {
 	    CounsellorDTO getCounsellorById(Long id);
 
 	    void deleteCounsellor(Long id);
+
+	    CounsellorDTO updateCounsellor(Long id, CounsellorDTO counsellorDTO);
 }

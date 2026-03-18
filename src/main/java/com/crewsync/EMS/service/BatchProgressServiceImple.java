@@ -1,13 +1,18 @@
 package com.crewsync.EMS.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.crewsync.EMS.dto.BatchProgressDTO;
+import com.crewsync.EMS.entity.Batch;
 import com.crewsync.EMS.entity.BatchProgress;
+import com.crewsync.EMS.entity.Trainer;
 import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.BatchProgressRepository;
+import com.crewsync.EMS.repository.BatchRepository;
+import com.crewsync.EMS.repository.TrainerRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,60 +21,78 @@ import lombok.RequiredArgsConstructor;
 public class BatchProgressServiceImple implements BatchProgressService {
 
     private final BatchProgressRepository repository;
+    private final BatchRepository batchRepository;
+    private final TrainerRepository trainerRepository;
+
+    // Helper: entity -> DTO
+    private BatchProgressDTO toDTO(BatchProgress p) {
+        return new BatchProgressDTO(
+                p.getId(),
+                p.getTitle(),
+                p.getDescription(),
+                p.getDocumentUrl(),
+                p.getDocumentName(),
+                p.getDocumentData(),
+                p.getBatch() != null ? p.getBatch().getId() : null,
+                p.getTrainer() != null ? p.getTrainer().getId() : null
+        );
+    }
 
     @Override
     public BatchProgressDTO addProgress(BatchProgressDTO dto) {
-
         BatchProgress progress = new BatchProgress();
         progress.setTitle(dto.getTitle());
         progress.setDescription(dto.getDescription());
         progress.setDocumentUrl(dto.getDocumentUrl());
+        progress.setDocumentName(dto.getDocumentName());
+        progress.setDocumentData(dto.getDocumentData());
+        progress.setDate(LocalDate.now());
 
-        BatchProgress saved = repository.save(progress);
+        // Link to batch if batchId provided
+        if (dto.getBatchId() != null) {
+            Batch batch = batchRepository.findById(dto.getBatchId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Batch", dto.getBatchId()));
+            progress.setBatch(batch);
+        }
 
-        return new BatchProgressDTO(
-                saved.getId(),
-                saved.getTitle(),
-                saved.getDescription(),
-                saved.getDocumentUrl()
-        );
+        // Link to trainer if trainerId provided
+        if (dto.getTrainerId() != null) {
+            Trainer trainer = trainerRepository.findById(dto.getTrainerId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Trainer", dto.getTrainerId()));
+            progress.setTrainer(trainer);
+        }
+
+        return toDTO(repository.save(progress));
     }
 
     @Override
     public List<BatchProgressDTO> getAllProgress() {
-
-        return repository.findAll()
-                .stream()
-                .map(p -> new BatchProgressDTO(
-                        p.getId(),
-                        p.getTitle(),
-                        p.getDescription(),
-                        p.getDocumentUrl()
-                ))
-                .toList();
+        return repository.findAll().stream().map(this::toDTO).toList();
     }
 
     @Override
     public BatchProgressDTO getProgressById(Long id) {
-
-        BatchProgress progress = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
-
-        return new BatchProgressDTO(
-                progress.getId(),
-                progress.getTitle(),
-                progress.getDescription(),
-                progress.getDocumentUrl()
-        );
+        return toDTO(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id)));
     }
 
     @Override
     public void deleteProgress(Long id) {
-
         if (!repository.existsById(id)) {
             throw new ResourceNotFoundException("BatchProgress", id);
         }
-
         repository.deleteById(id);
+    }
+
+    @Override
+    public BatchProgressDTO updateProgress(Long id, BatchProgressDTO dto) {
+        BatchProgress progress = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
+        if (dto.getTitle() != null) progress.setTitle(dto.getTitle());
+        if (dto.getDescription() != null) progress.setDescription(dto.getDescription());
+        if (dto.getDocumentUrl() != null) progress.setDocumentUrl(dto.getDocumentUrl());
+        if (dto.getDocumentName() != null) progress.setDocumentName(dto.getDocumentName());
+        if (dto.getDocumentData() != null) progress.setDocumentData(dto.getDocumentData());
+        return toDTO(repository.save(progress));
     }
 }

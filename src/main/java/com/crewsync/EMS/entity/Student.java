@@ -20,6 +20,7 @@ public class Student {
 	    private String email;
 	    private String phone;
 	    private String password;
+	    private String course;
 
 	    @ManyToOne
 	    @JoinColumn(name = "batch_id")

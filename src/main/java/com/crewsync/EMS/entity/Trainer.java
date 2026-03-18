@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.crewsync.EMS.enums.EmpStatus;
 
 
@@ -32,9 +32,11 @@ public class Trainer {
 	    @Enumerated(EnumType.STRING)
 	    private EmpStatus empstatus;
 	    
+	    @JsonIgnore
 	    @OneToMany(mappedBy = "trainer")
 	    private List<Batch> batches;
 
+	    @JsonIgnore
 	    @OneToMany(mappedBy = "trainer")
 	    private List<BatchProgress> progressList;
 }

@@ -15,4 +15,6 @@ public interface BatchService {
 	    void assignTrainer(Long batchId, Long trainerId);
 
 	    void deleteBatch(Long id);
+
+	    BatchDTO updateBatch(Long id, BatchDTO batchDTO);
 }
