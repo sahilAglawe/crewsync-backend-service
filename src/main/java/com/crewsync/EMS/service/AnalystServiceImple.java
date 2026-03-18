@@ -43,7 +43,12 @@ public class AnalystServiceImple implements AnalystService {
                         a.getId(),
                         a.getName(),
                         a.getEmail(),
-                        a.getPassword()))
+                        a.getPhone(),
+                        a.getPassword(),
+                        a.getJoiningDate(),
+                        a.getSalary(),  
+                        a.getEmpstatus()
+                    ))
                 .toList();
     }
 
@@ -57,7 +62,12 @@ public class AnalystServiceImple implements AnalystService {
                 analyst.getId(),
                 analyst.getName(),
                 analyst.getEmail(),
-                analyst.getPassword());
+                analyst.getPhone(),
+                analyst.getPassword(),
+                analyst.getJoiningDate(),
+                analyst.getSalary(),
+                analyst.getEmpstatus()
+            );
     }
 
     @Override

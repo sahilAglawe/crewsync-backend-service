@@ -44,7 +44,11 @@ public class TrainerServiceImple implements TrainerService {
                         t.getId(),
                         t.getName(),
                         t.getEmail(),
-                        t.getPassword()))
+                        t.getPhone(),
+                        t.getPassword(),
+                        t.getJoiningDate(),
+                        t.getSalary(),
+                        t.getEmpstatus()))
                 .toList();
     }
 
@@ -58,7 +62,12 @@ public class TrainerServiceImple implements TrainerService {
                 trainer.getId(),
                 trainer.getName(),
                 trainer.getEmail(),
-                trainer.getPassword());
+                trainer.getPhone(),
+                trainer.getPassword(),
+                trainer.getJoiningDate(),
+                trainer.getSalary(),
+                trainer.getEmpstatus()
+            );
     }
 
     @Override

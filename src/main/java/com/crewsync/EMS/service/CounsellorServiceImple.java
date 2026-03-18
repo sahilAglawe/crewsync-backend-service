@@ -38,7 +38,7 @@ public class CounsellorServiceImple implements CounsellorService {
 	@Override
 	public List<CounsellorDTO> getAllCounsellors() {
 		return counsellorRepository.findAll().stream()
-				.map(c -> new CounsellorDTO(c.getId(), c.getName(), c.getEmail(), c.getPassword()))
+				.map(c -> new CounsellorDTO(c.getId(), c.getName(), c.getEmail(), c.getPhone(), c.getPassword() , c.getJoiningDate(), c.getSalary(), c.getEmpstatus()))
 				.toList();
 	}
 
@@ -47,7 +47,7 @@ public class CounsellorServiceImple implements CounsellorService {
 		Counsellor counsellor = counsellorRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Counsellor", id));
 		
-		return new CounsellorDTO(counsellor.getId(), counsellor.getName(), counsellor.getEmail(), counsellor.getPassword());
+		return new CounsellorDTO(counsellor.getId(), counsellor.getName(), counsellor.getEmail(), counsellor.getPhone(), counsellor.getPassword(), counsellor.getJoiningDate(), counsellor.getSalary(), counsellor.getEmpstatus());
 	}
 
 	@Override
