@@ -14,8 +14,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Create default admin if not exist
-        if (adminRepository.count() == 0) {
+        if (adminRepository.findByEmail("admin@crewsync.com").isEmpty()) {
             Admin admin = new Admin();
             admin.setName("Admin");
             admin.setEmail("admin@crewsync.com");
