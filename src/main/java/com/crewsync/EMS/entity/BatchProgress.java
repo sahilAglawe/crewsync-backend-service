@@ -30,6 +30,10 @@ public class BatchProgress {
 
     private LocalDate date;
 
+    private String createdAt;
+
+    private String updatedAt;
+
     // Select batch from batch table
     @ManyToOne
     @JoinColumn(name = "batch_id")

@@ -44,7 +44,7 @@ public class AuthController {
         switch (role.toUpperCase()) {
             case "ADMIN": {
                 Admin admin = adminRepository.findByEmail(email).orElse(null);
-                if (admin != null && admin.getPassword().equals(password)) {
+                if (admin != null && password.equals(admin.getPassword())) {
                     Map<String, Object> response = new HashMap<>();
                     response.put("id", admin.getId());
                     response.put("name", admin.getName());
@@ -56,7 +56,7 @@ public class AuthController {
             }
             case "TRAINER": {
                 Trainer trainer = trainerRepository.findByEmail(email).orElse(null);
-                if (trainer != null && trainer.getPassword().equals(password)) {
+                if (trainer != null && password.equals(trainer.getPassword())) {
                     Map<String, Object> response = new HashMap<>();
                     response.put("id", trainer.getId());
                     response.put("name", trainer.getName());
@@ -68,7 +68,7 @@ public class AuthController {
             }
             case "ANALYST": {
                 Analyst analyst = analystRepository.findByEmail(email).orElse(null);
-                if (analyst != null && analyst.getPassword().equals(password)) {
+                if (analyst != null && password.equals(analyst.getPassword())) {
                     Map<String, Object> response = new HashMap<>();
                     response.put("id", analyst.getId());
                     response.put("name", analyst.getName());
@@ -80,7 +80,7 @@ public class AuthController {
             }
             case "COUNSELOR": {
                 Counsellor counsellor = counsellorRepository.findByEmail(email).orElse(null);
-                if (counsellor != null && counsellor.getPassword().equals(password)) {
+                if (counsellor != null && password.equals(counsellor.getPassword())) {
                     Map<String, Object> response = new HashMap<>();
                     response.put("id", counsellor.getId());
                     response.put("name", counsellor.getName());

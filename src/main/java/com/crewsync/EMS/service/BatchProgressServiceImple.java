@@ -34,7 +34,10 @@ public class BatchProgressServiceImple implements BatchProgressService {
                 p.getDocumentName(),
                 p.getDocumentData(),
                 p.getBatch() != null ? p.getBatch().getId() : null,
-                p.getTrainer() != null ? p.getTrainer().getId() : null
+                p.getTrainer() != null ? p.getTrainer().getId() : null,
+                p.getTrainer() != null ? p.getTrainer().getName() : null,
+                p.getCreatedAt(),
+                p.getUpdatedAt()
         );
     }
 
@@ -47,6 +50,8 @@ public class BatchProgressServiceImple implements BatchProgressService {
         progress.setDocumentName(dto.getDocumentName());
         progress.setDocumentData(dto.getDocumentData());
         progress.setDate(LocalDate.now());
+        progress.setCreatedAt(dto.getCreatedAt() != null ? dto.getCreatedAt() : java.time.Instant.now().toString());
+        progress.setUpdatedAt(dto.getUpdatedAt());
 
         // Link to batch if batchId provided
         if (dto.getBatchId() != null) {
@@ -90,9 +95,11 @@ public class BatchProgressServiceImple implements BatchProgressService {
                 .orElseThrow(() -> new ResourceNotFoundException("BatchProgress", id));
         if (dto.getTitle() != null) progress.setTitle(dto.getTitle());
         if (dto.getDescription() != null) progress.setDescription(dto.getDescription());
-        if (dto.getDocumentUrl() != null) progress.setDocumentUrl(dto.getDocumentUrl());
-        if (dto.getDocumentName() != null) progress.setDocumentName(dto.getDocumentName());
-        if (dto.getDocumentData() != null) progress.setDocumentData(dto.getDocumentData());
+        if (dto.getDocumentUrl() != null && !dto.getDocumentUrl().isEmpty()) progress.setDocumentUrl(dto.getDocumentUrl());
+        if (dto.getDocumentName() != null && !dto.getDocumentName().isEmpty()) progress.setDocumentName(dto.getDocumentName());
+        if (dto.getDocumentData() != null && !dto.getDocumentData().isEmpty()) progress.setDocumentData(dto.getDocumentData());
+        // Always set the updatedAt timestamp
+        progress.setUpdatedAt(dto.getUpdatedAt() != null ? dto.getUpdatedAt() : java.time.Instant.now().toString());
         return toDTO(repository.save(progress));
     }
 }

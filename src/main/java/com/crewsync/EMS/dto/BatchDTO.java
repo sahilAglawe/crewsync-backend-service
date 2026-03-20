@@ -23,4 +23,5 @@ public class BatchDTO {
 	private BatchStatus batchstatus;
 	private Long trainerId;
 	private Long analystId;
+	private String trainer;    // trainer name - for display in UI
 }

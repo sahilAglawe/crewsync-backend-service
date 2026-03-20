@@ -15,4 +15,7 @@ public class BatchProgressDTO {
 	private String documentData;
 	private Long batchId;
 	private Long trainerId;
+	private String trainerName;
+	private String createdAt;
+	private String updatedAt;
 }

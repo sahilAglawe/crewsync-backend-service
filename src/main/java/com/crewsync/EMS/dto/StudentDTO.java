@@ -16,4 +16,8 @@ public class StudentDTO {
 	private Long counsellorId;
 	private Long batchId;
 	private String batchName;
+	// Alias for batchName used by frontend
+	private String batch;
+	private String status;
+	private String enrollmentDate;
 }

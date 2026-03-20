@@ -3,11 +3,16 @@ package com.crewsync.EMS.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import com.crewsync.EMS.dto.TrainerDTO;
+import com.crewsync.EMS.entity.Batch;
+import com.crewsync.EMS.entity.BatchProgress;
 import com.crewsync.EMS.entity.Trainer;
 import com.crewsync.EMS.exception.ResourceNotFoundException;
+import com.crewsync.EMS.repository.BatchProgressRepository;
+import com.crewsync.EMS.repository.BatchRepository;
 import com.crewsync.EMS.repository.TrainerRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,6 +22,8 @@ import lombok.RequiredArgsConstructor;
 public class TrainerServiceImple implements TrainerService {
 
     private final TrainerRepository trainerRepository;
+    private final BatchRepository batchRepository;
+    private final BatchProgressRepository batchProgressRepository;
 
     @Override
     public TrainerDTO createTrainer(TrainerDTO trainerDTO) {
@@ -71,10 +78,29 @@ public class TrainerServiceImple implements TrainerService {
     }
 
     @Override
+    @Transactional
     public void deleteTrainer(Long id) {
 
         if (!trainerRepository.existsById(id)) {
             throw new ResourceNotFoundException("Trainer", id);
+        }
+
+        Trainer trainer = trainerRepository.findById(id).get();
+
+        // De-associate from batches (set trainer to null)
+        if (trainer.getBatches() != null) {
+            for (Batch b : trainer.getBatches()) {
+                b.setTrainer(null);
+                batchRepository.save(b);
+            }
+        }
+
+        // De-associate from batch progress (set trainer to null)
+        if (trainer.getProgressList() != null) {
+            for (BatchProgress p : trainer.getProgressList()) {
+                p.setTrainer(null);
+                batchProgressRepository.save(p);
+            }
         }
 
         trainerRepository.deleteById(id);

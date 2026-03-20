@@ -25,7 +25,8 @@ public class StudentServiceImple implements StudentService {
 
     // Helper: entity -> DTO (null-safe for optional relations)
     private StudentDTO toDTO(Student s) {
-        return new StudentDTO(
+        String batchName = s.getBatch() != null ? s.getBatch().getBatchName() : null;
+        StudentDTO dto = new StudentDTO(
                 s.getId(),
                 s.getName(),
                 s.getEmail(),
@@ -34,8 +35,12 @@ public class StudentServiceImple implements StudentService {
                 s.getCourse(),
                 s.getCounsellor() != null ? s.getCounsellor().getId() : null,
                 s.getBatch() != null ? s.getBatch().getId() : null,
-                s.getBatch() != null ? s.getBatch().getBatchName() : null
+                batchName,
+                batchName,   // batch alias = batchName
+                "Active",    // default status
+                null         // enrollmentDate not stored in entity
         );
+        return dto;
     }
 
     @Override

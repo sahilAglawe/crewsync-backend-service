@@ -20,7 +20,7 @@ public class BatchServiceImple implements BatchService {
     private final BatchRepository batchRepository;
     private final TrainerRepository trainerRepository;
 
-    // Helper to map Batch entity → BatchDTO (includes trainerId, analystId, batchName)
+    // Helper to map Batch entity → BatchDTO (includes trainerId, analystId, batchName, trainer name)
     private BatchDTO toDTO(Batch b) {
         BatchDTO dto = new BatchDTO();
         dto.setId(b.getId());
@@ -33,6 +33,7 @@ public class BatchServiceImple implements BatchService {
         dto.setMode(b.getMode());
         dto.setBatchstatus(b.getBatchstatus());
         dto.setTrainerId(b.getTrainer() != null ? b.getTrainer().getId() : null);
+        dto.setTrainer(b.getTrainer() != null ? b.getTrainer().getName() : null);
         dto.setAnalystId(b.getAnalyst() != null ? b.getAnalyst().getId() : null);
         return dto;
     }
@@ -91,6 +92,12 @@ public class BatchServiceImple implements BatchService {
         if (batchDTO.getEndDate() != null) batch.setEndDate(batchDTO.getEndDate());
         if (batchDTO.getMode() != null) batch.setMode(batchDTO.getMode());
         if (batchDTO.getBatchstatus() != null) batch.setBatchstatus(batchDTO.getBatchstatus());
+        // Update trainer assignment if trainer ID provided
+        if (batchDTO.getTrainerId() != null) {
+            Trainer trainer = trainerRepository.findById(batchDTO.getTrainerId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Trainer", batchDTO.getTrainerId()));
+            batch.setTrainer(trainer);
+        }
         return toDTO(batchRepository.save(batch));
     }
 }

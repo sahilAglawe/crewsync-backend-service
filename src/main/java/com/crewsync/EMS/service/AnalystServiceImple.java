@@ -3,11 +3,14 @@ package com.crewsync.EMS.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.crewsync.EMS.dto.AnalystDTO;
 import com.crewsync.EMS.entity.Analyst;
+import com.crewsync.EMS.entity.Batch;
 import com.crewsync.EMS.exception.ResourceNotFoundException;
 import com.crewsync.EMS.repository.AnalystRepository;
+import com.crewsync.EMS.repository.BatchRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class AnalystServiceImple implements AnalystService {
 
     private final AnalystRepository analystRepository;
+    private final BatchRepository batchRepository;
 
     @Override
     public AnalystDTO createAnalyst(AnalystDTO analystDTO) {
@@ -71,10 +75,21 @@ public class AnalystServiceImple implements AnalystService {
     }
 
     @Override
+    @Transactional
     public void deleteAnalyst(Long id) {
 
         if (!analystRepository.existsById(id)) {
             throw new ResourceNotFoundException("Analyst", id);
+        }
+
+        Analyst analyst = analystRepository.findById(id).get();
+
+        // De-associate from batches (set analyst to null)
+        if (analyst.getBatches() != null) {
+            for (Batch b : analyst.getBatches()) {
+                b.setAnalyst(null);
+                batchRepository.save(b);
+            }
         }
 
         analystRepository.deleteById(id);
