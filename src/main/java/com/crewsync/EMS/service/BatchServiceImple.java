@@ -3,6 +3,7 @@ package com.crewsync.EMS.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.crewsync.EMS.dto.BatchDTO;
 import com.crewsync.EMS.entity.Batch;
@@ -35,6 +36,7 @@ public class BatchServiceImple implements BatchService {
         dto.setTrainerId(b.getTrainer() != null ? b.getTrainer().getId() : null);
         dto.setTrainer(b.getTrainer() != null ? b.getTrainer().getName() : null);
         dto.setAnalystId(b.getAnalyst() != null ? b.getAnalyst().getId() : null);
+        dto.setStudentsEnrolled(b.getStudents() != null ? b.getStudents().size() : 0);
         return dto;
     }
 
@@ -52,11 +54,13 @@ public class BatchServiceImple implements BatchService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<BatchDTO> getAllBatches() {
         return batchRepository.findAll().stream().map(this::toDTO).toList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public BatchDTO getBatchById(Long id) {
         return toDTO(batchRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Batch", id)));
