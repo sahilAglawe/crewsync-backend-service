@@ -32,14 +32,16 @@ public class TrainerServiceImple implements TrainerService {
         trainer.setName(trainerDTO.getName());
         trainer.setEmail(trainerDTO.getEmail());
         trainer.setPassword(trainerDTO.getPassword());
+        if (trainerDTO.getPhone() != null) trainer.setPhone(trainerDTO.getPhone());
+        if (trainerDTO.getJoiningDate() != null) trainer.setJoiningDate(trainerDTO.getJoiningDate());
+        if (trainerDTO.getSalary() != null) trainer.setSalary(trainerDTO.getSalary());
+        trainer.setEmpstatus(trainerDTO.getEmpstatus() != null ? trainerDTO.getEmpstatus() : com.crewsync.EMS.enums.EmpStatus.ACTIVE);
 
         Trainer savedTrainer = trainerRepository.save(trainer);
 
-        trainerDTO.setId(savedTrainer.getId());
-        trainerDTO.setName(savedTrainer.getName());
-        trainerDTO.setEmail(savedTrainer.getEmail());
-
-        return trainerDTO;
+        return new TrainerDTO(savedTrainer.getId(), savedTrainer.getName(), savedTrainer.getEmail(),
+                savedTrainer.getPhone(), savedTrainer.getPassword(), savedTrainer.getJoiningDate(),
+                savedTrainer.getSalary(), savedTrainer.getEmpstatus());
     }
 
     @Override

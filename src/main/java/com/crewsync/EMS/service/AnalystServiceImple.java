@@ -28,14 +28,20 @@ public class AnalystServiceImple implements AnalystService {
         analyst.setName(analystDTO.getName());
         analyst.setEmail(analystDTO.getEmail());
         analyst.setPassword(analystDTO.getPassword());
+        if (analystDTO.getPhone() != null)
+            analyst.setPhone(analystDTO.getPhone());
+        if (analystDTO.getJoiningDate() != null)
+            analyst.setJoiningDate(analystDTO.getJoiningDate());
+        if (analystDTO.getSalary() != null)
+            analyst.setSalary(analystDTO.getSalary());
+        analyst.setEmpstatus(analystDTO.getEmpstatus() != null ? analystDTO.getEmpstatus()
+                : com.crewsync.EMS.enums.EmpStatus.ACTIVE);
 
         Analyst savedAnalyst = analystRepository.save(analyst);
 
-        analystDTO.setId(savedAnalyst.getId());
-        analystDTO.setName(savedAnalyst.getName());
-        analystDTO.setEmail(savedAnalyst.getEmail());
-
-        return analystDTO;
+        return new AnalystDTO(savedAnalyst.getId(), savedAnalyst.getName(), savedAnalyst.getEmail(),
+                savedAnalyst.getPhone(), savedAnalyst.getPassword(), savedAnalyst.getJoiningDate(),
+                savedAnalyst.getSalary(), savedAnalyst.getEmpstatus());
     }
 
     @Override
@@ -50,9 +56,8 @@ public class AnalystServiceImple implements AnalystService {
                         a.getPhone(),
                         a.getPassword(),
                         a.getJoiningDate(),
-                        a.getSalary(),  
-                        a.getEmpstatus()
-                    ))
+                        a.getSalary(),
+                        a.getEmpstatus()))
                 .toList();
     }
 
@@ -70,8 +75,7 @@ public class AnalystServiceImple implements AnalystService {
                 analyst.getPassword(),
                 analyst.getJoiningDate(),
                 analyst.getSalary(),
-                analyst.getEmpstatus()
-            );
+                analyst.getEmpstatus());
     }
 
     @Override
@@ -103,7 +107,8 @@ public class AnalystServiceImple implements AnalystService {
         analyst.setEmail(analystDTO.getEmail());
         if (analystDTO.getPhone() != null) analyst.setPhone(analystDTO.getPhone());
         if (analystDTO.getPassword() != null) analyst.setPassword(analystDTO.getPassword());
-        if (analystDTO.getJoiningDate() != null) analyst.setJoiningDate(analystDTO.getJoiningDate());
+        if (analystDTO.getJoiningDate() !=
+            null) analyst.setJoiningDate(analystDTO.getJoiningDate());
         if (analystDTO.getSalary() != null) analyst.setSalary(analystDTO.getSalary());
         if (analystDTO.getEmpstatus() != null) analyst.setEmpstatus(analystDTO.getEmpstatus());
         Analyst saved = analystRepository.save(analyst);

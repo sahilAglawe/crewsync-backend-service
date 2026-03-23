@@ -14,13 +14,11 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        if (adminRepository.findByEmail("admin@crewsync.com").isEmpty()) {
-            Admin admin = new Admin();
-            admin.setName("Admin");
-            admin.setEmail("admin@crewsync.com");
-            admin.setPassword("admin123");
-            adminRepository.save(admin);
-            System.out.println("✅ Default admin created: admin@crewsync.com / admin123");
-        }
+        Admin admin = adminRepository.findByEmail("admin@crewsync.com").orElse(new Admin());
+        admin.setName("Admin");
+        admin.setEmail("admin@crewsync.com");
+        admin.setPassword("admin123");
+        adminRepository.save(admin);
+        System.out.println("✅ Default admin ensured: admin@crewsync.com / admin123");
     }
 }

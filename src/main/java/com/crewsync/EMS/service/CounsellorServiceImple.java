@@ -28,13 +28,16 @@ public class CounsellorServiceImple implements CounsellorService {
         counsellor.setName(counsellorDTO.getName());
         counsellor.setEmail(counsellorDTO.getEmail());
         counsellor.setPassword(counsellorDTO.getPassword());
+        if (counsellorDTO.getPhone() != null) counsellor.setPhone(counsellorDTO.getPhone());
+        if (counsellorDTO.getJoiningDate() != null) counsellor.setJoiningDate(counsellorDTO.getJoiningDate());
+        if (counsellorDTO.getSalary() != null) counsellor.setSalary(counsellorDTO.getSalary());
+        counsellor.setEmpstatus(counsellorDTO.getEmpstatus() != null ? counsellorDTO.getEmpstatus() : com.crewsync.EMS.enums.EmpStatus.ACTIVE);
 		
         Counsellor savedCounsellor = counsellorRepository.save(counsellor);
 		
-        counsellorDTO.setId(savedCounsellor.getId());
-        counsellorDTO.setName(savedCounsellor.getName());
-        counsellorDTO.setEmail(savedCounsellor.getEmail());
-        return counsellorDTO;
+        return new CounsellorDTO(savedCounsellor.getId(), savedCounsellor.getName(), savedCounsellor.getEmail(),
+                savedCounsellor.getPhone(), savedCounsellor.getPassword(), savedCounsellor.getJoiningDate(),
+                savedCounsellor.getSalary(), savedCounsellor.getEmpstatus());
     }
 
     @Override
