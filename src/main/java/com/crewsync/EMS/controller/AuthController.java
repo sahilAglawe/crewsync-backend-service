@@ -18,6 +18,7 @@ import com.crewsync.EMS.repository.AdminRepository;
 import com.crewsync.EMS.repository.AnalystRepository;
 import com.crewsync.EMS.repository.CounsellorRepository;
 import com.crewsync.EMS.repository.TrainerRepository;
+import com.crewsync.EMS.security.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,63 +31,45 @@ public class AuthController {
     private final TrainerRepository trainerRepository;
     private final AnalystRepository analystRepository;
     private final CounsellorRepository counsellorRepository;
+    private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> loginRequest) {
-        String email = loginRequest.get("email");
+        String email    = loginRequest.get("email");
         String password = loginRequest.get("password");
-        String role = loginRequest.get("role");
+        String role     = loginRequest.get("role");
 
         if (email == null || password == null || role == null) {
-            return ResponseEntity.badRequest().body(Map.of("error", "Email, password and role are required"));
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "Email, password and role are required"));
         }
 
         switch (role.toUpperCase()) {
             case "ADMIN": {
                 Admin admin = adminRepository.findByEmail(email).orElse(null);
                 if (admin != null && password.equals(admin.getPassword())) {
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("id", admin.getId());
-                    response.put("name", admin.getName());
-                    response.put("email", admin.getEmail());
-                    response.put("role", "ADMIN");
-                    return ResponseEntity.ok(response);
+                    return ResponseEntity.ok(buildResponse(admin.getId(), admin.getName(), admin.getEmail(), "ADMIN"));
                 }
                 break;
             }
             case "TRAINER": {
                 Trainer trainer = trainerRepository.findByEmail(email).orElse(null);
                 if (trainer != null && password.equals(trainer.getPassword())) {
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("id", trainer.getId());
-                    response.put("name", trainer.getName());
-                    response.put("email", trainer.getEmail());
-                    response.put("role", "TRAINER");
-                    return ResponseEntity.ok(response);
+                    return ResponseEntity.ok(buildResponse(trainer.getId(), trainer.getName(), trainer.getEmail(), "TRAINER"));
                 }
                 break;
             }
             case "ANALYST": {
                 Analyst analyst = analystRepository.findByEmail(email).orElse(null);
                 if (analyst != null && password.equals(analyst.getPassword())) {
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("id", analyst.getId());
-                    response.put("name", analyst.getName());
-                    response.put("email", analyst.getEmail());
-                    response.put("role", "ANALYST");
-                    return ResponseEntity.ok(response);
+                    return ResponseEntity.ok(buildResponse(analyst.getId(), analyst.getName(), analyst.getEmail(), "ANALYST"));
                 }
                 break;
             }
             case "COUNSELOR": {
                 Counsellor counsellor = counsellorRepository.findByEmail(email).orElse(null);
                 if (counsellor != null && password.equals(counsellor.getPassword())) {
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("id", counsellor.getId());
-                    response.put("name", counsellor.getName());
-                    response.put("email", counsellor.getEmail());
-                    response.put("role", "COUNSELOR");
-                    return ResponseEntity.ok(response);
+                    return ResponseEntity.ok(buildResponse(counsellor.getId(), counsellor.getName(), counsellor.getEmail(), "COUNSELOR"));
                 }
                 break;
             }
@@ -96,5 +79,17 @@ public class AuthController {
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Map.of("error", "Invalid email or password"));
+    }
+
+    /** Shared helper: build a login response map with JWT token included. */
+    private Map<String, Object> buildResponse(Long id, String name, String email, String role) {
+        String token = jwtUtil.generateToken(id, email, role);
+        Map<String, Object> response = new HashMap<>();
+        response.put("id", id);
+        response.put("name", name);
+        response.put("email", email);
+        response.put("role", role);
+        response.put("token", token);
+        return response;
     }
 }
