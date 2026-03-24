@@ -12,6 +12,7 @@ public class DataInitializer implements CommandLineRunner {
 
     private final AdminRepository adminRepository;
 
+    
     @Override
     public void run(String... args) {
         Admin admin = adminRepository.findByEmail("admin@crewsync.com").orElse(new Admin());
