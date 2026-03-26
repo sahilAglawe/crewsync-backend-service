@@ -7,12 +7,16 @@ import lombok.AllArgsConstructor;
 import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"batch", "counsellor"})
 public class Student {
 
 	    @Id
+	    @EqualsAndHashCode.Include
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 

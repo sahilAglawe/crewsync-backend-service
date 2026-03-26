@@ -13,12 +13,16 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"batches", "progressList"})
 public class Trainer {
 
 	 @Id
+	 @EqualsAndHashCode.Include
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    

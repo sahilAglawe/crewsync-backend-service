@@ -9,13 +9,16 @@ import com.crewsync.EMS.enums.EmpStatus;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Counsellor {
 
 
 	    @Id
+	    @EqualsAndHashCode.Include
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    

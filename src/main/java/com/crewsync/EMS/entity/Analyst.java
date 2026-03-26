@@ -13,12 +13,16 @@ import lombok.*;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"batches"})
 public class Analyst {
 
 	    @Id
+	    @EqualsAndHashCode.Include
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    
