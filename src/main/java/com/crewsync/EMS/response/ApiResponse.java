@@ -2,7 +2,6 @@ package com.crewsync.EMS.response;
 
 import lombok.*;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
