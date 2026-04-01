@@ -83,3 +83,274 @@ This generated password is for development use only. Your security configuration
 Hibernate: select a1_0.id,a1_0.email,a1_0.name,a1_0.password from admin a1_0 where a1_0.email=?
 Hibernate: select a1_0.id,a1_0.email,a1_0.name,a1_0.password from admin a1_0 where a1_0.id=?
 ? Default admin ensured: admin@crewsync.com / admin123
+2026-04-01T12:32:45.402+05:30  INFO 16508 --- [EMS] [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01T12:32:45.411+05:30  INFO 16508 --- [EMS] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-01T12:32:45.484+05:30  INFO 16508 --- [EMS] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 71 ms
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+JWT ROLE: ADMIN
+Hibernate: select count(*) from trainer t1_0 where t1_0.id=?
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0 where b1_0.trainer_id=?
+Hibernate: select bp1_0.id,bp1_0.batch_id,bp1_0.created_at,bp1_0.date,bp1_0.description,bp1_0.document_data,bp1_0.document_name,bp1_0.document_url,bp1_0.title,bp1_0.trainer_id,bp1_0.updated_at from batch_progress bp1_0 where bp1_0.trainer_id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: delete from trainer where id=?
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0 where a1_0.email=?
+JWT ROLE: ANALYST
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+JWT ROLE: ANALYST
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+Hibernate: insert into batch (analyst_id,batch_name,batchstatus,course,end_date,max_students,mode,start_date,trainer_id) values (?,?,?,?,?,?,?,?,?)
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: update batch set analyst_id=?,batch_name=?,batchstatus=?,course=?,end_date=?,max_students=?,mode=?,start_date=?,trainer_id=? where id=?
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: update batch set analyst_id=?,batch_name=?,batchstatus=?,course=?,end_date=?,max_students=?,mode=?,start_date=?,trainer_id=? where id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: ANALYST
+Hibernate: select count(*) from batch b1_0 where b1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select pl1_0.batch_id,pl1_0.id,pl1_0.created_at,pl1_0.date,pl1_0.description,pl1_0.document_data,pl1_0.document_name,pl1_0.document_url,pl1_0.title,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,pl1_0.updated_at from batch_progress pl1_0 left join trainer t1_0 on t1_0.id=pl1_0.trainer_id where pl1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: delete from batch where id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.email=?
+JWT ROLE: COUNSELOR
+JWT ROLE: COUNSELOR
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: COUNSELOR
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: COUNSELOR
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: COUNSELOR
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: insert into student (batch_id,counsellor_id,course,email,name,password,phone) values (?,?,?,?,?,?,?)
+JWT ROLE: COUNSELOR
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: COUNSELOR
+Hibernate: select s1_0.id,b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join batch b1_0 on b1_0.id=s1_0.batch_id left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.id=?
+Hibernate: update student set batch_id=?,counsellor_id=?,course=?,email=?,name=?,password=?,phone=? where id=?
+JWT ROLE: COUNSELOR
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: COUNSELOR
+Hibernate: select s1_0.id,b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join batch b1_0 on b1_0.id=s1_0.batch_id left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: update student set batch_id=?,counsellor_id=?,course=?,email=?,name=?,password=?,phone=? where id=?
+JWT ROLE: COUNSELOR
+JWT ROLE: COUNSELOR
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: COUNSELOR
+Hibernate: select count(*) from student s1_0 where s1_0.id=?
+Hibernate: select s1_0.id,b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join batch b1_0 on b1_0.id=s1_0.batch_id left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.id=?
+Hibernate: delete from student where id=?
+Hibernate: select a1_0.id,a1_0.email,a1_0.name,a1_0.password from admin a1_0 where a1_0.email=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.email=?
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+JWT ROLE: TRAINER
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
+JWT ROLE: TRAINER
+JWT ROLE: TRAINER
+Hibernate: select bp1_0.id,bp1_0.batch_id,bp1_0.created_at,bp1_0.date,bp1_0.description,bp1_0.document_data,bp1_0.document_name,bp1_0.document_url,bp1_0.title,bp1_0.trainer_id,bp1_0.updated_at from batch_progress bp1_0
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: TRAINER
+JWT ROLE: TRAINER
+Hibernate: select b1_0.id,b1_0.analyst_id,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,b1_0.trainer_id from batch b1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.id,s1_0.batch_id,s1_0.counsellor_id,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0 where c1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: select s1_0.batch_id,s1_0.id,c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary,s1_0.course,s1_0.email,s1_0.name,s1_0.password,s1_0.phone from student s1_0 left join counsellor c1_0 on c1_0.id=s1_0.counsellor_id where s1_0.batch_id=?
+JWT ROLE: TRAINER
+Hibernate: select bp1_0.id,bp1_0.batch_id,bp1_0.created_at,bp1_0.date,bp1_0.description,bp1_0.document_data,bp1_0.document_name,bp1_0.document_url,bp1_0.title,bp1_0.trainer_id,bp1_0.updated_at from batch_progress bp1_0
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+JWT ROLE: TRAINER
+Hibernate: select b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from batch b1_0 left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id where b1_0.id=?
+Hibernate: insert into batch_progress (batch_id,created_at,date,description,document_data,document_name,document_url,title,trainer_id,updated_at) values (?,?,?,?,?,?,?,?,?,?)
+JWT ROLE: TRAINER
+Hibernate: select bp1_0.id,b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,bp1_0.created_at,bp1_0.date,bp1_0.description,bp1_0.document_data,bp1_0.document_name,bp1_0.document_url,bp1_0.title,t2_0.id,t2_0.email,t2_0.empstatus,t2_0.joining_date,t2_0.name,t2_0.password,t2_0.phone,t2_0.salary,bp1_0.updated_at from batch_progress bp1_0 left join batch b1_0 on b1_0.id=bp1_0.batch_id left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id left join trainer t2_0 on t2_0.id=bp1_0.trainer_id where bp1_0.id=?
+Hibernate: update batch_progress set batch_id=?,created_at=?,date=?,description=?,document_data=?,document_name=?,document_url=?,title=?,trainer_id=?,updated_at=? where id=?
+JWT ROLE: TRAINER
+Hibernate: select count(*) from batch_progress bp1_0 where bp1_0.id=?
+Hibernate: select bp1_0.id,b1_0.id,a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary,b1_0.batch_name,b1_0.batchstatus,b1_0.course,b1_0.end_date,b1_0.max_students,b1_0.mode,b1_0.start_date,t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary,bp1_0.created_at,bp1_0.date,bp1_0.description,bp1_0.document_data,bp1_0.document_name,bp1_0.document_url,bp1_0.title,t2_0.id,t2_0.email,t2_0.empstatus,t2_0.joining_date,t2_0.name,t2_0.password,t2_0.phone,t2_0.salary,bp1_0.updated_at from batch_progress bp1_0 left join batch b1_0 on b1_0.id=bp1_0.batch_id left join analyst a1_0 on a1_0.id=b1_0.analyst_id left join trainer t1_0 on t1_0.id=b1_0.trainer_id left join trainer t2_0 on t2_0.id=bp1_0.trainer_id where bp1_0.id=?
+Hibernate: delete from batch_progress where id=?
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0 where t1_0.id=?
+Hibernate: update trainer set email=?,empstatus=?,joining_date=?,name=?,password=?,phone=?,salary=? where id=?
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+JWT ROLE: ADMIN
+Hibernate: select t1_0.id,t1_0.email,t1_0.empstatus,t1_0.joining_date,t1_0.name,t1_0.password,t1_0.phone,t1_0.salary from trainer t1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.empstatus,a1_0.joining_date,a1_0.name,a1_0.password,a1_0.phone,a1_0.salary from analyst a1_0
+Hibernate: select c1_0.id,c1_0.email,c1_0.empstatus,c1_0.joining_date,c1_0.name,c1_0.password,c1_0.phone,c1_0.salary from counsellor c1_0
