@@ -74,13 +74,16 @@ public class CounsellorServiceImple implements CounsellorService {
     }
 
     @Override
+    @Transactional
     public CounsellorDTO updateCounsellor(Long id, CounsellorDTO counsellorDTO) {
         Counsellor counsellor = counsellorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Counsellor", id));
-        counsellor.setName(counsellorDTO.getName());
-        counsellor.setEmail(counsellorDTO.getEmail());
+        if (counsellorDTO.getName() != null) counsellor.setName(counsellorDTO.getName());
+        if (counsellorDTO.getEmail() != null) counsellor.setEmail(counsellorDTO.getEmail());
         if (counsellorDTO.getPhone() != null) counsellor.setPhone(counsellorDTO.getPhone());
-        if (counsellorDTO.getPassword() != null) counsellor.setPassword(counsellorDTO.getPassword());
+        if (counsellorDTO.getPassword() != null && !counsellorDTO.getPassword().isBlank()) {
+            counsellor.setPassword(counsellorDTO.getPassword());
+        }
         if (counsellorDTO.getJoiningDate() != null) counsellor.setJoiningDate(counsellorDTO.getJoiningDate());
         if (counsellorDTO.getSalary() != null) counsellor.setSalary(counsellorDTO.getSalary());
         if (counsellorDTO.getEmpstatus() != null) counsellor.setEmpstatus(counsellorDTO.getEmpstatus());

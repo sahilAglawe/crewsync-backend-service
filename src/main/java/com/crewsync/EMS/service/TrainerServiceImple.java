@@ -87,35 +87,34 @@ public class TrainerServiceImple implements TrainerService {
             throw new ResourceNotFoundException("Trainer", id);
         }
 
-        Trainer trainer = trainerRepository.findById(id).get();
-
-        // De-associate from batches (set trainer to null)
-        if (trainer.getBatches() != null) {
-            for (Batch b : trainer.getBatches()) {
-                b.setTrainer(null);
-                batchRepository.save(b);
-            }
+        // De-associate from batches using repository query (avoids lazy loading issues)
+        List<Batch> batches = batchRepository.findByTrainerId(id);
+        for (Batch b : batches) {
+            b.setTrainer(null);
+            batchRepository.save(b);
         }
 
-        // De-associate from batch progress (set trainer to null)
-        if (trainer.getProgressList() != null) {
-            for (BatchProgress p : trainer.getProgressList()) {
-                p.setTrainer(null);
-                batchProgressRepository.save(p);
-            }
+        // De-associate from batch progress using repository query
+        List<BatchProgress> progressList = batchProgressRepository.findByTrainerId(id);
+        for (BatchProgress p : progressList) {
+            p.setTrainer(null);
+            batchProgressRepository.save(p);
         }
 
         trainerRepository.deleteById(id);
     }
 
     @Override
+    @Transactional
     public TrainerDTO updateTrainer(Long id, TrainerDTO trainerDTO) {
         Trainer trainer = trainerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Trainer", id));
-        trainer.setName(trainerDTO.getName());
-        trainer.setEmail(trainerDTO.getEmail());
+        if (trainerDTO.getName() != null) trainer.setName(trainerDTO.getName());
+        if (trainerDTO.getEmail() != null) trainer.setEmail(trainerDTO.getEmail());
         if (trainerDTO.getPhone() != null) trainer.setPhone(trainerDTO.getPhone());
-        if (trainerDTO.getPassword() != null) trainer.setPassword(trainerDTO.getPassword());
+        if (trainerDTO.getPassword() != null && !trainerDTO.getPassword().isBlank()) {
+            trainer.setPassword(trainerDTO.getPassword());
+        }
         if (trainerDTO.getJoiningDate() != null) trainer.setJoiningDate(trainerDTO.getJoiningDate());
         if (trainerDTO.getSalary() != null) trainer.setSalary(trainerDTO.getSalary());
         if (trainerDTO.getEmpstatus() != null) trainer.setEmpstatus(trainerDTO.getEmpstatus());

@@ -86,29 +86,28 @@ public class AnalystServiceImple implements AnalystService {
             throw new ResourceNotFoundException("Analyst", id);
         }
 
-        Analyst analyst = analystRepository.findById(id).get();
-
-        // De-associate from batches (set analyst to null)
-        if (analyst.getBatches() != null) {
-            for (Batch b : analyst.getBatches()) {
-                b.setAnalyst(null);
-                batchRepository.save(b);
-            }
+        // De-associate from batches using repository query (avoids lazy loading issues)
+        List<Batch> batches = batchRepository.findByAnalystId(id);
+        for (Batch b : batches) {
+            b.setAnalyst(null);
+            batchRepository.save(b);
         }
 
         analystRepository.deleteById(id);
     }
 
     @Override
+    @Transactional
     public AnalystDTO updateAnalyst(Long id, AnalystDTO analystDTO) {
         Analyst analyst = analystRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Analyst", id));
-        analyst.setName(analystDTO.getName());
-        analyst.setEmail(analystDTO.getEmail());
+        if (analystDTO.getName() != null) analyst.setName(analystDTO.getName());
+        if (analystDTO.getEmail() != null) analyst.setEmail(analystDTO.getEmail());
         if (analystDTO.getPhone() != null) analyst.setPhone(analystDTO.getPhone());
-        if (analystDTO.getPassword() != null) analyst.setPassword(analystDTO.getPassword());
-        if (analystDTO.getJoiningDate() !=
-            null) analyst.setJoiningDate(analystDTO.getJoiningDate());
+        if (analystDTO.getPassword() != null && !analystDTO.getPassword().isBlank()) {
+            analyst.setPassword(analystDTO.getPassword());
+        }
+        if (analystDTO.getJoiningDate() != null) analyst.setJoiningDate(analystDTO.getJoiningDate());
         if (analystDTO.getSalary() != null) analyst.setSalary(analystDTO.getSalary());
         if (analystDTO.getEmpstatus() != null) analyst.setEmpstatus(analystDTO.getEmpstatus());
         Analyst saved = analystRepository.save(analyst);
